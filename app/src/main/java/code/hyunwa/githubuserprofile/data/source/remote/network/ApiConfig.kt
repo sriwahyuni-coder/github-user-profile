@@ -1,5 +1,6 @@
 package code.hyunwa.githubuserprofile.data.source.remote.network
 
+import code.hyunwa.githubuserprofile.BuildConfig
 import code.hyunwa.githubuserprofile.util.Constants
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
@@ -23,6 +24,11 @@ object ApiConfig {
 
             val client: OkHttpClient = OkHttpClient.Builder()
                 .addInterceptor(interceptor)
+                .addInterceptor {
+                    val request = it.request()
+                    val newRequest = request.newBuilder().header("Authorization", Constants.API_KEY)
+                    it.proceed(newRequest.build())
+                }
                 .connectTimeout(60, TimeUnit.SECONDS)
                 .readTimeout(60, TimeUnit.SECONDS)
                 .writeTimeout(60, TimeUnit.SECONDS)

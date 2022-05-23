@@ -1,5 +1,6 @@
 package code.hyunwa.githubuserprofile.ui
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,7 +40,7 @@ class MainAdapter(
         fun bind(data: UserResponseItem, itemAdapterCallback: ItemAdapterCallback) {
             itemView.apply {
                 tv_username.text = data.login
-                tv_id.text = "Id: ${data.nodeId}"
+                tv_id.text = "Id: ${data.id}"
                 tv_repo.text = "Repo Url: ${data.reposUrl}"
 
                 Glide.with(context)
