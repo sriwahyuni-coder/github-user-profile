@@ -119,8 +119,8 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener,
                     pg_loading_main.visibility = View.GONE
                     val data: UserDetailResponse? = it.data
                     if (data != null) {
-                        val parser :SimpleDateFormat  = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-                        val formatter:SimpleDateFormat =  SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss");
+                        val parser :SimpleDateFormat  = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+                        val formatter:SimpleDateFormat =  SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss")
                         val create_at = formatter.format(parser.parse(data.createdAt))
                         Log.e("SUSS","${data.login} , email: ${data.email} , create_at: ${create_at}")
                         Toast.makeText(this, "${data.login} , email: ${data.email} , create_at: ${data.createdAt}", Toast.LENGTH_LONG).show()
